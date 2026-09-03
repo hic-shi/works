@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>信号機と相席純喫茶</title>
+    <title>HIC_SHIの本棚</title>
     <style>
-        /* カラー変数を定義（最大5色） */
         :root {
-            --bg-color: #c0a246;         /* 1. 全体背景 */
-            --card-bg: #ffffff;          /* 2. カード・コンテンツ背景 */
-            --text-color: #333333;       /* 3. 基本テキスト */
-            --text-sub: #888888;         /* 4. サブテキスト（日付など） */
-            --accent-color: #7a5c10;     /* 5. リンク・アクセントカラー */
+            --bg-color: #c0a246;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-sub: #888888;
+            --accent-color: #7a5c10;
         }
 
         * {
-            box-sizing: border-box; /* パディングや枠線による幅崩れを完全に防ぐ */
+            box-sizing: border-box;
         }
 
         body {
@@ -26,21 +25,19 @@
             color: var(--text-color);
         }
 
-        /* 全体レイアウト用コンテナ（確実に左右横並びにする） */
         .layout-container {
             display: flex;
-            flex-direction: row;        /* 確実に横並び指定 */
+            flex-direction: row;
             width: 100%;
             max-width: 1100px;
-            margin: 0 auto;             /* 画面中央に配置 */
-            gap: 20px;                  /* 左右の隙間 */
-            align-items: flex-start;    /* 高さを揃えず上揃えにする */
+            margin: 0 auto;
+            gap: 20px;
+            align-items: flex-start;
         }
 
-        /* 左側：作品リンク一覧（幅を固定／追尾なし） */
         .sidebar-left {
+            flex: 0 0 220px;
             width: 220px;
-            flex-shrink: 0;             /* 右側の圧迫で潰れないように固定 */
             background-color: var(--card-bg);
             padding: 20px;
             border-radius: 8px;
@@ -59,6 +56,10 @@
             margin: 0;
         }
 
+        .sidebar-left ul ul {
+            padding-left: 1em;
+        }
+
         .sidebar-left li {
             margin-bottom: 12px;
         }
@@ -74,20 +75,20 @@
             text-decoration: underline;
         }
 
-        /* 右側：メインエリア（残りの幅をすべて使う） */
         .content-right {
-            flex: 1;                    /* 残り幅を自動計算して埋める */
-            min-width: 0;               /* 子要素のはみ出しによる横並び崩れを防止 */
+            flex: 1;
+            min-width: 0;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        /* 右上ヘッダー（スクロール時に追尾固定） */
         .sticky-header {
+            position: -webkit-sticky;
             position: sticky;
-            top: 20px;                  /* スクロール時、画面上部20pxで固定 */
+            top: 20px;
             z-index: 100;
+            transform: translateZ(0);
             background-color: var(--card-bg);
             padding: 15px 20px;
             border-radius: 8px;
@@ -108,12 +109,17 @@
             font-weight: bold;
         }
 
-        /* メイン作品エリア #m */
-        #m {
+        #home {
             background-color: var(--card-bg);
             border: 10px solid var(--card-bg);
             padding: 20px;
             border-radius: 8px;
+        }
+
+        #home ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         #dete {
@@ -129,26 +135,47 @@
             height: auto;
             margin: 20px auto;
         }
+        @media (max-width: 1024px) {
+            .ma {
+                width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .ma {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- 全体コンテナ（左右2カラム） -->
     <div class="layout-container category">
 
-        <!-- 左側：作品リンク一覧（幅220px固定・スクロールで流れる） -->
         <aside class="sidebar-left category">
             <h2>作品一覧</h2>
             <ul>
-                <li><a href="home.html">HOME</a></li>
-                <li><a href="#work1">処女作</a></li>
-                <li><a href="#work2">作品二作目</a></li>
-                <li><a href="#work3">作品三作目</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li>
+                    <a href="work01.html">信号機と相席純喫茶</a>
+                    <ul>
+                        <li><a href="01.html">漫画</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://hic-shi.github.io/AGFos/">AGFos!</a></li>
             </ul>
         </aside>
 
-      <p>ギャラリーに載せられない作品まとめ</p>
+        <main class="content-right category">
 
+            <article id="home" class="category">
+                 <h1>HIC_SHIの本棚</h1>
+                 <p>ひくしーのgallery以外の作品を載せるヨ。</p>
+                 <div class="news">
+                    <ul>
+                        <li><a href="01.html">信号機と相席純喫茶 / 漫画</a></li>
+                    </ul>
+                 </div>
+            </article>
+        </main>
 
     </div>
 
