@@ -1,4 +1,6 @@
 const worksData = [
+    {"title": "home", "url": "index.html",},
+    {"title": "top", "url": "#top",},
     {
         "title": "脳直", "url": "nochoku.html", "external": true,
         "children": [
@@ -102,31 +104,59 @@ const worksData = [
     }
 ];
 
-function buildTree(items) {
+function buildTree(items, openTitles = []) {
     const ul = document.createElement('ul');
     ul.className = 'nav-tree';
 
     items.forEach(item => {
         const li = document.createElement('li');
+        const hasChildren = item.children && item.children.length > 0;
+        const isOpen = openTitles.includes(item.title);
 
-        if (item.url) {
-            const a = document.createElement('a');
-            a.href = item.url;
-            a.textContent = item.title;
-            if (item.external) {
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
+        if (hasChildren) {
+            const details = document.createElement('details');
+            if (isOpen) {
+                details.open = true;
             }
-            li.appendChild(a);
-        } else {
-            const span = document.createElement('span');
-            span.className = 'nav-category-title';
-            span.textContent = item.title;
-            li.appendChild(span);
-        }
 
-        if (item.children && item.children.length > 0) {
-            li.appendChild(buildTree(item.children));
+            const summary = document.createElement('summary');
+            summary.className = 'nav-toggle';
+
+            if (item.url) {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.textContent = item.title;
+                if (item.external) {
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                }
+                summary.appendChild(a);
+            } else {
+                const span = document.createElement('span');
+                span.className = 'nav-category-title';
+                span.textContent = item.title;
+                summary.appendChild(span);
+            }
+
+            details.appendChild(summary);
+            details.appendChild(buildTree(item.children, openTitles));
+            li.appendChild(details);
+        } else {
+            if (item.url) {
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.textContent = item.title;
+                if (item.external) {
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                }
+                li.appendChild(a);
+            } else {
+                const span = document.createElement('span');
+                span.className = 'nav-category-title';
+                span.textContent = item.title;
+                li.appendChild(span);
+            }
         }
 
         ul.appendChild(li);
@@ -138,6 +168,7 @@ function buildTree(items) {
 document.addEventListener('DOMContentLoaded', () => {
     const worksContainer = document.getElementById('js-works-container');
     if (worksContainer) {
-        worksContainer.appendChild(buildTree(worksData));
+        const openTitles = ['脳直', 'シーレンス', 'ヴィルグ', 'AGFos'];
+        worksContainer.appendChild(buildTree(worksData, openTitles));
     }
 });
