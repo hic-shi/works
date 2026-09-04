@@ -137,6 +137,8 @@ body {
     background-color: var(--card-bg);
     padding: 20px;
     border-radius: 8px;
+    position: sticky;
+    top: 20px;
 }
 
 .sidebar-left h2 {
@@ -167,8 +169,36 @@ body {
 .sidebar-left .nav-category-title {
     font-weight: bold;
     color: var(--text-color);
-    display: block;
+    display: inline-block;
+}
+
+.sidebar-left summary.nav-toggle {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
     margin-top: 6px;
+}
+
+.sidebar-left summary.nav-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.sidebar-left summary.nav-toggle::before {
+    content: '▶';
+    font-size: 9px;
+    margin-right: 5px;
+    color: var(--text-sub);
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.sidebar-left details[open] > summary.nav-toggle::before {
+    transform: rotate(90deg);
+}
+
+.sidebar-left summary.nav-toggle a {
+    display: inline;
 }
 
 .sidebar-left a {
