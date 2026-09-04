@@ -53,7 +53,7 @@ const worksData = [
             {
                 "title": "原案",
                 "children": [
-                    { "title": "sseg", "url": "sseg.html" }
+                    { "title": "sseg"}
                 ]
             },
             {
