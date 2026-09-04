@@ -1,11 +1,17 @@
 const worksData = [
     {
+        "title": "脳直", "url": "nochoku.html", "external": true,
+        "children": [
+            { "title": "サイドメニュー", "url": "side-menu.html" }
+        ]
+    },
+    {
         "title": "シーレンス",
         "children": [
             {
                 "title": "レノレレン",
                 "children": [
-                    { "title": "さよならアリス", "url": "sayonara-alice.html" }
+                    { "title": "さよならアリス"}
                 ]
             },
             {
@@ -14,12 +20,12 @@ const worksData = [
                     {
                         "title": "AGFos",
                         "children": [
-                            { "title": "アージークリストフの手記", "url": "arg-christof.html" },
-                            { "title": "シーレンス!", "url": "silence.html" }
+                            { "title": "アージークリストフの手記", "url": "https://hic-shi.github.io/AGFos/index.html" },
+                            { "title": "シーレンス!"}
                         ]
                     },
-                    { "title": "メドロノイド", "url": "medronoid.html" },
-                    { "title": "群青色へ", "url": "gunjo.html" }
+                    { "title": "メドロノイド"},
+                    { "title": "群青色へ"}
                 ]
             }
         ]
@@ -27,20 +33,18 @@ const worksData = [
     {
         "title": "その他",
         "children": [
-            { "title": "脳直", "url": "nochoku.html" },
-            { "title": "サイドメニュー", "url": "side-menu.html" },
-            { "title": "名声", "url": "meisei.html" },
-            { "title": "氷結来春光", "url": "hyoketsu.html" },
-            { "title": "四季折々僕らの色", "url": "shiki.html" },
-            { "title": "灰退的深涖部", "url": "haitai.html" },
-            { "title": "姫と君", "url": "hime-to-kimi.html" },
-            { "title": "ガーネット", "url": "garnet.html" },
-            { "title": "いのち", "url": "inochi.html" },
-            { "title": "アンリアル", "url": "unreal.html" },
-            { "title": "Error", "url": "error.html" },
-            { "title": "異人", "url": "ijin.html" },
-            { "title": "信号機と相席純喫茶", "url": "kissaten.html" },
-            { "title": "コスモ ✧ ルール", "url": "cosmo-rule.html" }
+            { "title": "名声"},
+            { "title": "氷結来春光"},
+            { "title": "四季折々僕らの色"},
+            { "title": "灰退的深涖部"},
+            { "title": "姫と君"},
+            { "title": "ガーネット"},
+            { "title": "いのち"},
+            { "title": "アンリアル"},
+            { "title": "Error"},
+            { "title": "異人"},
+            { "title": "信号機と相席純喫茶"},
+            { "title": "コスモ ✧ ルール"}
         ]
     },
     {
@@ -58,27 +62,29 @@ const worksData = [
                     {
                         "title": "product-me※",
                         "url": "https://produteme.blog.jp/",
-                        "external": true
-                    },
-                    {
-                        "title": "夜光館※",
-                        "url": "https://yakoukan.mystrikingly.com/",
                         "external": true,
                         "children": [
-                            { "title": "柳生雪弥", "url": "https://x.com/nemi_note/status/1669934281177825280", "external": true },
-                            { "title": "鵜飼鈴音", "url": "https://x.com/nemi_note/status/1670921317569425408", "external": true },
-                            { "title": "ラヴ", "url": "https://x.com/nemi_note/status/1672803349174026241", "external": true },
-                            { "title": "明暦", "url": "https://x.com/nemi_note/status/1683012468996726784", "external": true },
-                            { "title": "妖", "url": "https://x.com/nemi_note/status/1683792334344040448", "external": true },
-                            { "title": "◽︎ ◽︎ ◽︎", "url": "https://x.com/nemi_note/status/1730908318112330061", "external": true }
-                        ]
-                    },
-                    {
-                        "title": "儚国魔法大戦記※",
-                        "url": "https://origamiyuzuki.wixsite.com/kokumaho",
-                        "external": true,
-                        "children": [
-                            { "title": "tell", "url": "https://x.com/nemi_note/status/1904852886657655257", "external": true }
+                            {
+                                "title": "夜光館※",
+                                "url": "https://yakoukan.mystrikingly.com/",
+                                "external": true,
+                                "children": [
+                                    { "title": "柳生雪弥", "url": "https://x.com/nemi_note/status/1669934281177825280", "external": true },
+                                    { "title": "鵜飼鈴音", "url": "https://x.com/nemi_note/status/1670921317569425408", "external": true },
+                                    { "title": "ラヴ", "url": "https://x.com/nemi_note/status/1672803349174026241", "external": true },
+                                    { "title": "明暦", "url": "https://x.com/nemi_note/status/1683012468996726784", "external": true },
+                                    { "title": "妖", "url": "https://x.com/nemi_note/status/1683792334344040448", "external": true },
+                                    { "title": "◽︎◽︎◽︎", "url": "https://x.com/nemi_note/status/1730908318112330061", "external": true }
+                                ]
+                            },
+                            {
+                                "title": "儚国魔法大戦記※",
+                                "url": "https://origamiyuzuki.wixsite.com/kokumaho",
+                                "external": true,
+                                "children": [
+                                    { "title": "tell", "url": "https://x.com/nemi_note/status/1904852886657655257", "external": true }
+                                ]
+                            }
                         ]
                     },
                     {
