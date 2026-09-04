@@ -43,7 +43,11 @@ const worksData = [
             { "title": "アンリアル"},
             { "title": "Error"},
             { "title": "異人"},
-            { "title": "信号機と相席純喫茶"},
+            { "title": "信号機と相席純喫茶","external": true,"children":
+                [
+                    { "title": "漫画", "url": "singouki_comic.html"}
+                ]
+             },
             { "title": "コスモ ✧ ルール"}
         ]
     },
