@@ -3,181 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIC_SHIの本棚</title>
-    <style>
-        :root {
-            --bg-color: #c0a246;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --text-sub: #888888;
-            --accent-color: #7a5c10;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: var(--bg-color);
-            font-family: Arial, sans-serif;
-            color: var(--text-color);
-        }
-
-        .layout-container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .sidebar-left {
-            flex: 0 0 220px;
-            width: 220px;
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .sidebar-left h2 {
-            font-size: 16px;
-            margin-top: 0;
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 8px;
-        }
-
-        .sidebar-left ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-left ul ul {
-            padding-left: 1em;
-        }
-
-        .sidebar-left li {
-            margin-bottom: 12px;
-        }
-
-        .sidebar-left a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .sidebar-left a:hover {
-            text-decoration: underline;
-        }
-
-        .content-right {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .sticky-header {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 20px;
-            z-index: 100;
-            transform: translateZ(0);
-            background-color: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sticky-header h1 {
-            margin: 0;
-            font-size: 20px;
-        }
-
-        .sticky-header nav a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #home {
-            background-color: var(--card-bg);
-            border: 10px solid var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        #home ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #dete {
-            text-align: right;
-            font-size: 12px;
-            color: var(--text-sub);
-        }
-
-        .ma {
-            display: block;
-            width: 60%;
-            max-width: 100%;
-            height: auto;
-            margin: 20px auto;
-        }
-        @media (max-width: 1024px) {
-            .ma {
-                width: 100%;
-            }
-        }
-        @media (max-width: 768px) {
-            .ma {
-                width: 100%;
-            }
-        }
-    </style>
+        <link rel="stylesheet" href="style.css">    
+    <title>ホーム</title>
+    <meta property="og:site_name" content="HIC_SHIの本棚">
+    <meta property="og:title" content="ホーム">
+    <meta property="og:description" content="HIC_SHI作品を掲載したサイト">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hic-shi.github.io/works/">
 </head>
-<body>
-    <div class="layout-container category">
+<body id="top">
 
-        <aside class="sidebar-left category">
-            <h2>作品一覧</h2>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li>
-                    <a href="work01.html">信号機と相席純喫茶</a>
-                    <ul>
-                        <li><a href="01.html">漫画</a></li>
-                    </ul>
-                </li>
-                <li><a href="https://hic-shi.github.io/AGFos/">AGFos!</a></li>
-            </ul>
+    <nav class="nav-menu" id="js-nav-menu">
+        <div class="menu-inner">
+            <a href="index.html" class="menu-btn">HOME</a>
+            <a href="#top" class="menu-btn" id="js-top-btn">TOP</a>
+        </div>
+    </nav>
+
+    <div class="layout-container">
+
+        <aside class="sidebar-left" id="js-sidebar">
+            <h2>記事一覧</h2>
+            <div id="js-works-container"></div>
         </aside>
 
-        <main class="content-right category">
-
-            <article id="home" class="category">
-                 <h1>HIC_SHIの本棚</h1>
-                 <p>ひくしーのgallery以外の作品を載せるヨ。</p>
-                 <div class="news">
-                    <ul>
-                        <li><a href="01.html">信号機と相席純喫茶 / 漫画</a></li>
-                    </ul>
-                 </div>
-            </article>
-        </main>
+        <main>
+            <h1 id="top">HIC_SHIの本棚</h1>
+            <section>
+                <p>ひくしーのgallery以外の作品を載せるヨ。</p>
+                <a href="singouki_comic.html"><p>信号機と相席純喫茶 / 漫画</p></a>
+            </section>
+        <div id="jump"><a href="index.html">[ HOME ]</a>&nbsp<a href="#top">[ TOP ]</a></div>
+         </main>
 
     </div>
 
+    <script src="works.js"></script>
+
+    <script>
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        }, false);
+
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        }, false);
+
+        let touchTimer = null;
+        document.addEventListener('touchstart', (e) => {
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => {
+            if (touchTimer) clearTimeout(touchTimer);
+        });
+    </script>
 </body>
 </html>
