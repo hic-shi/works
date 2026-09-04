@@ -1,0 +1,54 @@
+<h2>記事一覧</h2>
+<div id="js-works-container"></div>
+
+<script>
+  (function () {
+    function buildTree(items) {
+      const ul = document.createElement('ul');
+      ul.className = 'nav-tree';
+
+      items.forEach(item => {
+        const li = document.createElement('li');
+
+        if (item.url) {
+          const a = document.createElement('a');
+          a.href = item.url;
+          a.textContent = item.title;
+          if (item.external) {
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+          }
+          li.appendChild(a);
+        } else {
+          const span = document.createElement('span');
+          span.className = 'nav-category-title';
+          span.textContent = item.title;
+          li.appendChild(span);
+        }
+
+        // 子階層がある場合は再帰呼出し
+        if (item.children && item.children.length > 0) {
+          li.appendChild(buildTree(item.children));
+        }
+
+        ul.appendChild(li);
+      });
+
+      return ul;
+    }
+
+    fetch('works.json')
+      .then(res => {
+        if (!res.ok) throw new Error('works.json の取得に失敗しました');
+        return res.json();
+      })
+      .then(data => {
+        const container = document.getElementById('js-works-container');
+        if (container) {
+          container.innerHTML = '';
+          container.appendChild(buildTree(data));
+        }
+      })
+      .catch(err => console.error(err));
+  })();
+</script>
