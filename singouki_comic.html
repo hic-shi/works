@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">    
+    <title>信号機と相席純喫茶</title>
+    <meta property="og:site_name" content="HIC_SHIの本棚">
+    <meta property="og:title" content="信号機と相席純喫茶">
+    <meta property="og:description" content="信号機と相席純喫茶のプロトタイプ。対話系雰囲気漫画">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://hic-shi.github.io/works/singouki_comic.html">
+    <!--<meta property="og:image" content="直接リンク">-->
+    <style>
+                #m {
+            background-color: var(--card-bg);
+            border: 10px solid var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #dete {
+            text-align: right;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .ma {
+            display: block;
+            width: 60%;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+    </style>
+
+</head>
+<body id="top">
+
+    <div class="header-nav" id="js-header-nav">
+        <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <nav class="nav-menu" id="js-nav-menu">
+        <div class="menu-inner">
+            <a href="index.html" class="menu-btn">HOME</a>
+            <a href="#top" class="menu-btn" id="js-top-btn">TOP</a>
+        </div>
+    </nav>
+
+    <div class="layout-container">
+
+        <aside class="sidebar-left" id="js-sidebar">
+            <h2>記事一覧</h2>
+            <div id="js-works-container"></div>
+        </aside>
+
+        <main>
+            <h1 id="top">信号機と相席純喫茶</h1>
+            <time id="posted_date" datetime="2026/08/06">2026/08/06</time>
+            <section>
+            <article id="m">
+                <img src="https://gyazo.com/f1403295175ebcf1d6bdbc4e1a47c192.png">
+                <img src="https://gyazo.com/63cdf4269410909aa16f2758a953f96b.png">
+                <img src="https://gyazo.com/07a0a985beab6fe91ae80267fab27d0d.png">
+                <img src="https://gyazo.com/47436bc4143569eee8c54e5367c5a33a.png">
+                <img src="https://gyazo.com/1421540c21345eacaad6a11834bb02d0.png">
+                <img src="https://gyazo.com/f448a71685b6fa7ffdd6925143271e75.png">
+                <img src="https://gyazo.com/9c5e000ff410b75b1b8728d309ecf05f.png">
+                <img src="https://gyazo.com/71318ffc9f5f4946b947cdb11952578e.png">
+                <img src="https://gyazo.com/38e536f424876c94862a8e2e6b274b0f.png">
+                <img src="https://gyazo.com/b63474645a561f4be19923be7f613529.png">
+                <img src="https://gyazo.com/81b25cde9a7c653565c5732a999f20ab.png">
+                <img src="https://gyazo.com/be4fd21cda4b1221fe9e79a12aaeee23.png">
+                <img src="https://gyazo.com/46ca2bbea06c0656f60f2a2b6542dc14.png">
+                <img src="https://gyazo.com/5bfad0078d69ff21e7432a432dea96bb.png">
+                <img src="https://gyazo.com/c248de94636f354bd6c68b23ebc0ac32.png">
+            </article>
+            </section>
+        <div id="jump"><a href="index.html">[ HOME ]</a>&nbsp<a href="#top">[ TOP ]</a></div>
+         </main>
+
+    </div>
+
+    <script src="works.js"></script>
+
+    <script>
+        const headerNav = document.getElementById('js-header-nav');
+        const hamburger = document.getElementById('js-hamburger');
+        const navMenu = document.getElementById('js-nav-menu');
+        const topBtn = document.getElementById('js-top-btn');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.add('active');
+            headerNav.classList.add('is-hidden');
+        });
+
+        topBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            headerNav.classList.remove('is-hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+                headerNav.classList.remove('is-hidden');
+            }
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        }, false);
+
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        }, false);
+
+        let touchTimer = null;
+        document.addEventListener('touchstart', (e) => {
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => {
+            if (touchTimer) clearTimeout(touchTimer);
+        });
+    </script>
+</body>
+</html>
