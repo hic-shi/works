@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【作品タイトル】</title>
+    <style>
+        :root {
+            --bg-color: #c0a246;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-sub: #888888;
+            --accent-color: #7a5c10;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        img {
+            -webkit-user-drag: none;
+            pointer-events: auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+        }
+
+        .header-nav {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+        }
+
+        .header-nav.is-hidden {
+            display: none !important;
+        }
+
+        .hamburger {
+            background: #7a5c1057;
+            border: none;
+            cursor: pointer;
+            padding: 10px 12px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: var(--card-bg);
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-bg);
+            padding: 20px 15px;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-bottom: 3px solid var(--accent-color);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .nav-menu.active {
+            display: block;
+        }
+
+        .menu-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .menu-btn,
+        .menu-btn:visited {
+            display: block;
+            flex: 1;
+            color: var(--card-bg) !important;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            background-color: var(--accent-color);
+            padding: 12px 0;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: opacity 0.2s;
+        }
+
+        .menu-btn:hover {
+            opacity: 0.85;
+            background-color: var(--accent-color);
+        }
+
+        .layout-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .sidebar-left {
+            width: 220px;
+            flex-shrink: 0;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar-left h2 {
+            font-size: 16px;
+            margin-top: 0;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 8px;
+        }
+
+        .sidebar-left ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-left li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar-left a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .sidebar-left a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex-grow: 1;
+            background-color: var(--card-bg);
+            padding: 0px;
+            border: 30px solid var(--card-bg);
+            border-radius: 8px;
+        }
+
+        h1 {
+            margin: 0px;
+        }
+
+        #posted_date,#jump {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+        a{
+          text-decoration: none;
+        }
+        a:hover{
+          background-color: #c0a246;
+        }
+        a:visited{
+          color : var(--text-color);
+        }
+        #jump{
+          margin-bottom: -8px;
+        }
+
+        section{
+          margin-top: 10px;
+        }
+        
+        .comic {
+            display: block;
+            width: 60%;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                padding-top: 10px;
+            }
+
+            .header-nav {
+                display: block;
+            }
+
+            .sidebar-left {
+                display: none;
+            }
+
+            .comic {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div class="header-nav" id="js-header-nav">
+        <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <nav class="nav-menu" id="js-nav-menu">
+        <div class="menu-inner">
+            <a href="index.html" class="menu-btn">HOME</a>
+            <a href="#top" class="menu-btn" id="js-top-btn">TOP</a>
+        </div>
+    </nav>
+
+    <div class="layout-container">
+
+        <aside class="sidebar-left" id="js-sidebar"></aside>
+
+        <main>
+            <h1>作品タイトル</h1>
+            <time id="posted_date" datetime="YYYY-MM-DD">YYYY/MM/DD</time>
+            <section>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, optio. Praesentium est sint doloremque dolorem quos ex quas omnis repellat, accusantium exercitationem quo sequi vel, adipisci, ducimus natus nostrum placeat!</p>
+            </section>
+        <div id="jump"><a href="index.html">[ HOME ]</a>&nbsp<a href="#TOP">[ TOP ]</a></div>
+         </main>
+
+    </div>
+
+    <script>
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('js-sidebar').innerHTML = data;
+            });
+
+        const headerNav = document.getElementById('js-header-nav');
+        const hamburger = document.getElementById('js-hamburger');
+        const navMenu = document.getElementById('js-nav-menu');
+        const topBtn = document.getElementById('js-top-btn');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.add('active');
+            headerNav.classList.add('is-hidden');
+        });
+
+        topBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            headerNav.classList.remove('is-hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+                headerNav.classList.remove('is-hidden');
+            }
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        }, false);
+
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        }, false);
+
+        let touchTimer = null;
+        document.addEventListener('touchstart', (e) => {
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => {
+            if (touchTimer) clearTimeout(touchTimer);
+        });
+    </script>
+</body>
+</html>
