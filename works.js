@@ -2,9 +2,9 @@ const worksData = [
     {"title": "home", "url": "index.html",},
     {"title": "top", "url": "#top",},
     {
-        "title": "脳直", "url": "nochoku.html", "external": true,
+        "title": "脳直", "url": "https://scrapbox.io/hic-shi/%E3%80%90%E8%84%B3%E7%9B%B4%E3%80%91", "external": true,
         "children": [
-            { "title": "サイドメニュー", "url": "side-menu.html" }
+            { "title": "サイドメニュー", "url": "https://scrapbox.io/hic-shi/%E3%80%90%E3%82%B5%E3%82%A4%E3%83%89%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%80%91" }
         ]
     },
     {
@@ -41,7 +41,7 @@ const worksData = [
             { "title": "灰退的深涖部"},
             { "title": "姫と君"},
             { "title": "ガーネット"},
-            { "title": "いのち"},
+            { "title": "正義"},
             { "title": "アンリアル"},
             { "title": "Error"},
             { "title": "異人"},
@@ -50,7 +50,7 @@ const worksData = [
                     { "title": "漫画", "url": "singouki_comic.html"}
                 ]
              },
-            { "title": "コスモ ✧ ルール"}
+            { "title": "コスモ ✧ ルール", "url": "https://scrapbox.io/hic-shi/%E3%80%90%E3%82%B3%E3%82%B9%E3%83%A2_%E2%9C%A6_%E3%83%AB%E3%83%BC%E3%83%AB%E3%80%91"}
         ]
     },
     {
